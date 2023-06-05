@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İşaret Dili Çevirici</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">İşaret Dili Çevirici</h1>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <input type="text" name="query" class="form-control" placeholder="Kelime veya cümle girin">
+            </div>
+            <button type="submit" class="btn btn-primary">Çevir</button>
+        </form>
+
+        {% if results %}
+            <div class="mt-4">
+                <h3>Sonuçlar:</h3>
+                <div class="d-flex flex-wrap">
+                    {% for word, gif_link in results.items() %}
+                        <div class="card m-2" style="width: 12rem;">
+                            {% if gif_link %}
+                                <img src="{{ gif_link }}" class="card-img-top" alt="{{ word }} Gif">
+                                <div class="card-body">
+                                    <p class="card-text">{{ word }}</p>
+                                </div>
+                            {% else %}
+                                <div class="card-body">
+                                    <p class="card-text">Kelime bulunamadı</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

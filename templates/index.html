@@ -6,10 +6,10 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h1 class="mb-4">İşaret Dili Çevirici</h1>
+        <h1 class="mb-4">Speak2Me | İşaret Dili Çevirici</h1>
         <form method="POST" action="/">
             <div class="form-group">
-                <input type="text" name="query" class="form-control" placeholder="Kelime veya cümle girin">
+                <input type="text" name="query" class="form-control" placeholder="Kelime veya cümle girin" pattern="[^0-9]*" title="Sayısal karakterler kabul edilmiyor">
             </div>
             <button type="submit" class="btn btn-primary">Çevir</button>
         </form>
